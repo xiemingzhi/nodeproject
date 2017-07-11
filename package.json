@@ -1,0 +1,16 @@
+{
+  "name": "foo",
+  "version": "1.2.3",
+  "description": "A packaged foo fooer for fooing foos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/npm.git"
+  },
+  "license": "BSD-3-Clause",
+  "url": "https://github.com/owner/project/issues",
+  "email": "project@hostname.com",
+  "dependencies": {
+    "cli": "^1.0.1",
+    "curlrequest": "^1.0.1"
+  }
+}
