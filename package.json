@@ -12,6 +12,8 @@
   "dependencies": {
     "cli": "^1.0.1",
     "curlrequest": "^1.0.1",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "random-email": "^1.0.3",
+    "randomstring": "^1.1.5"
   }
 }
