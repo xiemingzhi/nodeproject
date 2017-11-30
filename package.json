@@ -10,6 +10,7 @@
   "url": "https://github.com/owner/project/issues",
   "email": "project@hostname.com",
   "dependencies": {
+    "cassandra-driver": "^3.3.0",
     "cli": "^1.0.1",
     "curlrequest": "^1.0.1",
     "mysql": "^2.15.0",
