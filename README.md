@@ -11,6 +11,13 @@ git-plus
 refactor  
 js-refactor  
 
+# vs code
+
+Install extensions:
+- live server  
+- Markdown all in one  
+- Git History  
+
 # nodejs
 
 ```
