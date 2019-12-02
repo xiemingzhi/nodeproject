@@ -65,3 +65,11 @@ Recommended edit package.json:
 ...
 npm start
 ```
+
+Optional:  
+Install [babel-node](https://babeljs.io/docs/en/babel-node)  
+```
+npm install --save-dev @babel/core @babel/node
+npx babel-node
+npx babel-node --debug --presets @bable/env lib/module-es6-example.js
+```
