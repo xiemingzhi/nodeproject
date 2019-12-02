@@ -40,3 +40,28 @@ CREATE TABLE contact (
   lastName text,
   PRIMARY KEY (email));
 ```
+
+# babel 
+
+```
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+npm install --save @babel/polyfill
+```
+
+Execute on command line (not recommended):  
+```
+./node_modules/.bin/babel *.js --out-dir lib
+Successfully compiled 16 files with Babel.
+...
+>node lib/module-es6-example.js
+```
+
+Recommended edit package.json:  
+```
+  "scripts": {
+    "build": "babel *.js -d dist",
+    "start": "npm run build && node dist/module-es6-example.js"
+   },
+...
+npm start
+```

@@ -10,6 +10,7 @@
   "url": "https://github.com/owner/project/issues",
   "email": "project@hostname.com",
   "dependencies": {
+    "@babel/polyfill": "^7.7.0",
     "cassandra-driver": "^3.3.0",
     "cli": "^1.0.1",
     "curlrequest": "^1.0.1",
@@ -17,5 +18,10 @@
     "random-email": "^1.0.3",
     "randomstring": "^1.1.5",
     "readline": "^1.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4"
   }
 }
