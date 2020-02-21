@@ -64,3 +64,6 @@ const goodTeacher = new Teacher('Mr Smith');
 //goodTeacher.prototype.talk = person2.talk; does not work
 goodTeacher.talk();//no prototype - goodTeacher.talk is not a function
 goodTeacher.lecture();
+
+console.log ('print object');
+console.log(goodTeacher);
