@@ -1,4 +1,6 @@
 //es6 ecmascript 2015 
+//a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.
+//Promise.resolve() and Promise.reject() are shortcuts to manually create an already resolved or rejected promise respectively. 
 let callAPIAsync = new Promise((resolve, reject) => {
     // make API call
     //if success call resolve 
@@ -16,6 +18,7 @@ let failureCallback = (failureMessage) => {
     console.log("Error " + failureMessage) 
   }
 
+//Callbacks will never be called before the completion of the current run of the JavaScript event loop.
 callAPIAsync.then(successCallback, failureCallback);
 
 console.log("Finish Setup")
