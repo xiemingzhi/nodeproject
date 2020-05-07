@@ -3,19 +3,24 @@
 //Promise.resolve() and Promise.reject() are shortcuts to manually create an already resolved or rejected promise respectively. 
 let callAPIAsync = new Promise((resolve, reject) => {
     // make API call
-    //if success call resolve 
+    let success = true //false
     setTimeout( function() {
-      resolve("Success!")  // Yay! Everything went well!
+      //if success call resolve 
+      if (success) {
+        resolve("Success!")  // Yay! Everything went well!
+      }//else call reject
+      else {
+        reject("Failure")
+      }
     }, 250) 
-    //else call reject
   }) 
 
 let successCallback = (successMessage) => {
-    console.log("Yay! " + successMessage) 
+    console.log("successCallback " + successMessage) 
   }
 
 let failureCallback = (failureMessage) => {
-    console.log("Error " + failureMessage) 
+    console.log("failureCallback " + failureMessage) 
   }
 
 //Callbacks will never be called before the completion of the current run of the JavaScript event loop.
@@ -34,7 +39,7 @@ console.log("Finish Setup")
 //with then(successCallback).catch(failureCallback) successCallback will be executed and if error, skip next then(), and will call failureCallback
 
 let problemSuccessCallback = (successMessage) => {
-  throw Error('problem in callback') 
+  throw Error('problem in successcallback') 
 }
 callAPIAsync.then(problemSuccessCallback).catch(failureCallback);
 console.log("Finish Setup2")
