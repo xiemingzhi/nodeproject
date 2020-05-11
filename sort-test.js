@@ -1,3 +1,38 @@
+/**
+ * pass by value
+ * take a number in the middle
+ * i index on the left
+ * j index from the right
+ * while it is greater than the left increment i continue ;
+ * while it is less than the right decrement j continue;
+ * if we find that i is greater or equal to j then break //reached the end 
+ * else swap number at j with number at i
+ * recursive call for the left
+ * recursive call for the right
+ * O(n2)
+ * @param inputArr
+ * @param left
+ * @param right
+ */
+function qsort (inputArr, left, right) {
+    if(left < right) {            
+        sindex = (left+right)/2; 
+        //console.log('sindex=', sindex);
+        s = inputArr[Math.floor(sindex)];             
+        i = left - 1;             
+        j = right + 1;             
+        while(true) {                                
+            while(inputArr[++i] < s); //look left                
+            while(inputArr[--j] > s); //look right                
+            if(i >= j)                     
+                break;                 
+            swap(inputArr, i, j);             
+        }
+        //console.log('qsort inputArr=', inputArr)             
+        qsort(inputArr, left, i-1);   // recursive call check the rest of the left side             
+        qsort(inputArr, j+1, right);  // recursive call check the rest of the right side
+    }    
+}
 
 /**
  * for i=1 to array length
@@ -64,5 +99,14 @@ isort(a);
 end = new Date() - start
 hrend = process.hrtime(hrstart)
 console.log("insertionsort a=", a);
+console.info('Execution time: %dms', end)
+console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000)
+a = [3,2,1,1,2,3,4,5];
+start = new Date()
+hrstart = process.hrtime()
+qsort(a, 0, a.length-1);
+end = new Date() - start
+hrend = process.hrtime(hrstart)
+console.log("quicksort a=", a);
 console.info('Execution time: %dms', end)
 console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000)
