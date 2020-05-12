@@ -27,6 +27,7 @@ npm install randomstring
 npm install --save random-email
 npm install cassandra-driver
 npm install googleapis
+npm install @stdlib/stdlib
 ```
 
 # cassandra
