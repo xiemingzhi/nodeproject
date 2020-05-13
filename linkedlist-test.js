@@ -1,3 +1,5 @@
+// to run this example first install 
+//npm install @stdlib/stdlib
 var utils = require( '@stdlib/utils' );
 
 var linkedList = require( '@stdlib/utils/linked-list' );

@@ -41,7 +41,18 @@ npm install randomstring
 npm install --save random-email
 npm install cassandra-driver
 npm install googleapis
-npm install @stdlib/stdlib
+//npm install @stdlib/stdlib
+```
+
+@stdlib currently having problems installing in windows
+```
+$ npm install
+npm ERR! code EINVALIDPACKAGENAME
+npm ERR! Invalid package name "@stdlib/array\buffer": name can only contain URL-friendly characters
+```
+remove from package.json 
+```
+    "@stdlib/stdlib": "0.0.91",
 ```
 
 # cassandra
