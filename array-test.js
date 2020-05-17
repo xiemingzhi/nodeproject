@@ -22,3 +22,4 @@ console.log(array1);
 
 //The pop() method removes the last element from an array and returns that element. 
 console.log(array1.pop(31));
+console.log('array1 length', array1.length);
