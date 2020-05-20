@@ -13,6 +13,18 @@ strx = '1001';
 //- The constructor function's parameters are not enclosed between slashes but do use quotation marks.
 console.log(strx.replace(/[0]*$/, ''))
 
+// a* a+ a?	0 or more, 1 or more, 0 or 1
+// \w \d \s	word, digit, whitespace
+// \W \D \S	not word, digit, whitespace
+// \w or \W only matches ASCII based characters; for example, a to z, A to Z, 0 to 9, and _.
+str = "words and 987"
+//str = "987 words and"
+let re = /^([a-zA-Z])+/
+if (str.match(re)) console.log('starts with ascii character', str)  
+
+const greeting = '   Hello world!   ';
+console.log(greeting.trimStart());
+
 //Adding two numbers, will return the sum, but adding a number and a string will return a string
 strx = '' + 1;
 console.log('convert to string', typeof(strx))
