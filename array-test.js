@@ -23,3 +23,8 @@ console.log(array1);
 //The pop() method removes the last element from an array and returns that element. 
 console.log(array1.pop(31));
 console.log('array1 length', array1.length);
+
+a = [['00', '01'], ['10']];
+console.log('a[0][0]', a[0][0]);
+console.log('a[0][1]', a[0][1]);
+console.log('a[1][0]', a[1][0]);

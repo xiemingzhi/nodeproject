@@ -40,3 +40,12 @@ intx = 1; //number
 //+null  // 0
 intx = +'0';
 console.log('convert to int', typeof(intx), 'value', intx)
+
+//string primitive vs String object
+let s_prim = 'foo'
+let s_obj = new String(s_prim)
+
+console.log(typeof s_prim) // Logs "string"
+console.log(typeof s_obj)  // Logs "object"
+
+str = 'a'
