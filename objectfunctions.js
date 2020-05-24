@@ -9,6 +9,8 @@ function createPerson(name) {
 }
 
 const person = createPerson('ted');
+console.log('person.name', person.name);
+console.log('createperson.name', createPerson('ted').name);
 person.talk();
 
 //Constructor function
@@ -29,6 +31,7 @@ function Person(name) {
 
 const person2 = new Person('ted2');
 person2.talk();
+console.log('show string ' + person2.name); //show string ted2
 console.log('show string ' + person2.privateMember);//show string undefined
 console.log('show string ' + person2.showString);
 
@@ -41,10 +44,11 @@ let f = function () {
 let o = new f();
 f.prototype.b = 3;
 f.prototype.c = 4;
-console.log(o.a);
-console.log(o.b);
-console.log(o.c);
-console.log(o.d);
+console.log(o.a);//1
+console.log(o.b);//2 cannot override b
+console.log(f.prototype.b);//3
+console.log(o.c);//4 extend f
+console.log(o.d);//undefined
 
 function Teacher(name) {
     this.name = name;
