@@ -42,6 +42,9 @@ const global4 = "global4";
 //In the global execution context (outside of any function), this refers to the global object
 //console.log('this != globalThis', this != globalThis);
 console.log('this == global', this == global);
+console.log('global hasproperty global1', global.hasOwnProperty('global1'));
+console.log('global hasproperty global3', global.hasOwnProperty('global3'));
+console.log('global hasproperty global4', global.hasOwnProperty('global4'));
 function f1() {
     console.log(this.global1);
     console.log(this.global3); //undefined
@@ -49,6 +52,7 @@ function f1() {
     console.log(global3);
     console.log(global4);
     //Inside a function context, not in strict mode, the value of `this` will default to the global object
+    console.log('inside function this == global', this == global);
     this.global5 = "global5";
 }
 f1();
@@ -63,10 +67,20 @@ g1(); //new function
 
 function outter(setOutter) {
     this.outter1 = 'outter1';
+    var outter2 = 'outter2';
     function inner() {
         console.log('outter1', this.outter1);
-        //inner1 = 'inner1'; // var inner1 = 'inner1' , this.inner1 = 'inner1'
-        let inner1 = 'inner1'; // const inner1 = 'inner1'
+        //inner1 = 'inner1'; //accessible from outside function
+        //this.inner1 = 'inner1'; //accessible from outside function
+        var inner1 = 'inner1'; //local only
+        //let inner1 = 'inner1'; //local only
+        //const inner1 = 'inner1'; //local only
+        console.log('global hasproperty inner1', global.hasOwnProperty('inner1'));
+        console.log('this hasproperty inner1', this.hasOwnProperty('inner1'));
+        console.log('global hasproperty outter1', global.hasOwnProperty('outter1'));
+        console.log('this hasproperty outter1', this.hasOwnProperty('outter1'));
+        //console.log('this hasproperty outter2', this.hasOwnProperty('outter2')); //false
+        console.log('closure can access outter function scope', outter2);
         if (setOutter) {
             this.outter1 = inner1;
         }
