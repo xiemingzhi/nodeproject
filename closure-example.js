@@ -1,3 +1,4 @@
+//a closure gives you access to an outer function’s scope from an inner function. 
 function makeFunc() {
   var name = "Mozilla";
   function displayName() {
@@ -24,6 +25,8 @@ var add10 = makeAdder(10);
 
 console.log(add5(2)); // 7
 console.log(add10(2)); // 12
+console.log(makeAdder(5)(2)); // 5 + 2
+console.log(makeAdder(10)(2)); // 10 + 2
 
 //=======================================================================
 //encapsulation
