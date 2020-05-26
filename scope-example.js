@@ -1,3 +1,7 @@
+foo = 'f' // In non-strict mode, assumes you want to create a property named `foo` on the global object
+//globalThis.hasOwnProperty('foo') // true
+global.hasOwnProperty('foo') //in node
+
 // antipattern
 global1 = "global1"; // global variable same as -> var global1 = "global1";
 global2 = "global2"; // global variable
@@ -25,6 +29,9 @@ function func() {
 }
 func();
 
+//The scope of a variable declared with var is its current execution context and closures thereof, which is either the enclosing function and functions declared within it, or, 
+//for variables declared outside any function, `global`.
+var global1 = "global1";
 //let allows you to declare variables that are limited to the scope of a block statement, or expression on which it is used, 
 //unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope. 
 let global3 = "global3";
@@ -32,16 +39,42 @@ let global3 = "global3";
 //Global constants do not become properties of the window object, unlike var variables.
 const global4 = "global4";
 //all about this
+//In the global execution context (outside of any function), this refers to the global object
+//console.log('this != globalThis', this != globalThis);
+console.log('this == global', this == global);
 function f1() {
     console.log(this.global1);
     console.log(this.global3); //undefined
     console.log(this.global4); //undefined
+    console.log(global3);
+    console.log(global4);
+    //Inside a function context, not in strict mode, the value of `this` will default to the global object
+    this.global5 = "global5";
 }
 f1();
 f1({global1: 'passbyargs'});
 console.log(this.global3);
 console.log(this.global4);
+console.log(this.global5); //global5
 
 //Calling f.bind(someObject) creates a new function with the same body and scope as f
 var g1 = f1.bind({global1: 'new function', global3: 'new function3', global4: 'new function4'});
 g1(); //new function 
+
+function outter(setOutter) {
+    this.outter1 = 'outter1';
+    function inner() {
+        console.log('outter1', this.outter1);
+        //inner1 = 'inner1'; // var inner1 = 'inner1' , this.inner1 = 'inner1'
+        let inner1 = 'inner1'; // const inner1 = 'inner1'
+        if (setOutter) {
+            this.outter1 = inner1;
+        }
+    }   
+    inner();
+}
+
+outter();
+outter(true);
+console.log('this.inner1', this.inner1);
+console.log('this.outter1', this.outter1);
