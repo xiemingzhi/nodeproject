@@ -30,7 +30,32 @@ class Teacher extends Person {
 
 const person1 = new Person('person1');
 person1.talk();
+console.log('person1.name', person1.name);
+console.log('Person.name', Person.name);
 
 const englishTeacher = new Teacher('Maggie', 'English');
 englishTeacher.lecture();
 englishTeacher.talk();
+console.log('englishtTeacher.subject', englishTeacher.subject);
+
+const Foo = class {
+    constructor() {
+        this.large = 'large';
+    }
+    bar() {
+        return 'Hello World!';
+    }
+    get lar() {
+        return this.large;
+    }
+    set lar(large) {
+        this.large = large;
+    }
+};
+
+const instance = new Foo();
+console.log('instance name', instance.name);  // undefined
+console.log('class name', Foo.name);        // "Foo"
+console.log('get accessor', instance.lar);
+instance.lar = 'small'
+console.log('set accessor', instance.lar);
