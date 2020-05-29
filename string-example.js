@@ -21,6 +21,10 @@ str = "words and 987"
 //str = "987 words and"
 let re = /^([a-zA-Z])+/
 if (str.match(re)) console.log('starts with ascii character', str)  
+//keep alphanumeric characters
+var a = 'Test123*** TEST';
+var b = a.replace(/[^a-z0-9]/gi,'');
+console.log('alphanumeric only', b);
 
 const greeting = '   Hello world!   ';
 console.log(greeting.trimStart());
