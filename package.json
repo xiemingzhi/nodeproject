@@ -11,9 +11,12 @@
   "email": "project@hostname.com",
   "dependencies": {
     "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
     "cassandra-driver": "^3.3.0",
     "cli": "^1.0.1",
+    "cors": "^2.8.5",
     "curlrequest": "^1.0.1",
+    "express": "^4.17.1",
     "googleapis": "^47.0.0",
     "mysql": "^2.15.0",
     "random-email": "^1.0.3",

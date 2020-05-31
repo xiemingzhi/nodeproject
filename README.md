@@ -67,3 +67,21 @@ CREATE TABLE contact (
   lastName text,
   PRIMARY KEY (email));
 ```
+
+# server sent events 
+Start server
+```
+npm install --save express body-parser cors
+node server.js 
+```
+Start listener
+```
+curl -H Accept:text/event-stream http://localhost:3000/events
+```
+Create message
+```
+curl -X POST \
+ -H "Content-Type: application/json" \
+ -d '{"name": "princess", "msg": "hello world"}'\
+ -s http://localhost:3000/message
+```
