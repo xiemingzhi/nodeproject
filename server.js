@@ -15,6 +15,8 @@ function eventsHandler(req, res, next) {
   };
   res.writeHead(200, headers);
   // After client opens connection send all messages as string
+  const event = `event: allmessages\n`;
+  res.write(event);
   const data = `data: ${JSON.stringify(messages)}\n\n`;
   res.write(data);
   // Generate an id based on timestamp and save res
@@ -36,7 +38,10 @@ function eventsHandler(req, res, next) {
 
 // Send new message to all clients
 function sendEventsToAll(newmessage) {
-  clients.forEach(c => c.res.write(`data: ${JSON.stringify(newmessage)}\n\n`))
+  clients.forEach(c => {
+    c.res.write(`event: newmessage\n`)
+    c.res.write(`data: ${JSON.stringify(newmessage)}\n\n`)
+  })
 }
 
 // POST /message endpoint
