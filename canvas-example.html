@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function draw() {
+            // Create canvas element
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+    
+            // --- 1 --- //
+            // var img = new Image();   // Create new img element
+            // img.onload = function() {
+            //     canvas.height = img.naturalHeight;
+            //     canvas.width = img.naturalWidth;
+            //     // Draw image to canvas
+            //     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            //     //Tainted canvases may not be exported
+            //     //For security reasons, your local drive is declared to be "other-domain" and will taint the canvas.
+            //     //(That's because your most sensitive info is likely on your local drive!).
+            //     //solution put image online 
+            //     //Note: Be aware that if the canvas contains any pixels that were obtained from another origin without using CORS, 
+            //     //the canvas is tainted and its contents can no longer be read and saved.
+            //     var dataURL = canvas.toDataURL("image/png");
+            //     console.log('dataurl', dataURL);
+            // }
+            // img.src = 'canvas.png'; // Set source path
+
+            // --- 2 --- //
+            // var img = document.getElementById('Img1');
+            // canvas.height = img.naturalHeight;
+            // canvas.width = img.naturalWidth;
+            // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            //img.setAttribute('crossorigin', 'anonymous'); // works for me
+            //img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+
+            var dataURL = canvas.toDataURL("image/png");
+            console.log('dataurl', dataURL);
+    
+        }
+
+        // --- 3 --- //
+        function drawImage(element) {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            var file = element.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                console.log('RESULT', reader.result)
+                var img = new Image();
+                img.onload = function() {
+                    canvas.height = img.naturalHeight;
+                    canvas.width = img.naturalWidth;
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                }
+                img.src = reader.result;
+            }
+            reader.readAsDataURL(file);
+
+        }
+    </script>
+    
+</head>
+
+<body onload="draw();">
+    <!-- 1 -->
+    <canvas id="canvas" ></canvas>
+    <!-- 2 -->
+    <!-- <img id="Img1" src="canvas.png" alt="" srcset="" > -->
+    <!-- <img id="Img1" src="https://mdn.mozillademos.org/files/5397/rhino.jpg" alt="" crossorigin='anonymous'> -->
+    <!-- <img id="Img1" src="https://cdn.glitch.com/4c9ebeb9-8b9a-4adc-ad0a-238d9ae00bb5%2Fmdn_logo-only_color.svg" alt="" crossorigin='anonymous'> -->
+    <!-- 3 -->
+    <input type="file" onchange="drawImage(this)" />
+</body>
+
+</html>
