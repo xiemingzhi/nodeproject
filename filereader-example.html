@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script>
+            function encodeImageFileAsURL(element) {
+                var file = element.files[0];
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    console.log('RESULT', reader.result)
+                }
+                reader.readAsDataURL(file);
+            }
+        </script>
+    </head>
+    <body>
+        <input type="file" onchange="encodeImageFileAsURL(this)" />
+    </body>
+</html>
