@@ -1,45 +1,32 @@
-class Node{
+function Node(data){
 
-    constructor(data){
-        //init members
-        this.data = data;
-    }
+    //init members
+    this.data = data;
  
-    data() {
-        return data;
-    }
-
-    setData(data) {
+    this.setData = function(data) {
         this.data = data;
     }
 
-    next() {
+    this.next = function() {
         return next;
     }
 
-    setNext(next) {
+    this.setNext = function(next) {
         this.next = next;
     }
  
-    toString(){
+    this.toString = function(){
         return this.data;
     }
 }
 
-//ES6 class syntax
-class LinkedList{
+function LinkedList(){
  
-    constructor(){
-        //init members
-        this.head = null;
-        this.count = 0;
-    }
+    //init members
+    this.head = null;
+    this.count = 0;
  
-    head(){
-        return head;
-    }
- 
-    add(data){
+    this.add = function(data){
         if (this.head === null) {
             this.head = new Node(data);
             this.head.next = null;
@@ -52,7 +39,7 @@ class LinkedList{
         }
     }
  
-    makeRangeIterator() {
+    this.makeRangeIterator = function() {
         let nextIndex = this.head;
         let totalCount = this.count;
         let iterationCount = 0;
@@ -73,15 +60,4 @@ class LinkedList{
     }
 }
 
-let linkedList = new LinkedList();
-linkedList.add("1");
-linkedList.add("2");
-linkedList.add("3");
-linkedList.add("4");
-
-len = linkedList.count;
-console.log('linkedlist count', linkedList.count);
-iter = linkedList.makeRangeIterator();
-for ( i = 0; i < len; i++ ) {
-    console.log( 'List value #%d: %s', i+1, iter.next().value );
-}
+module.exports = LinkedList;
