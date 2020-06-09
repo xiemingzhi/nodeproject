@@ -1,3 +1,7 @@
+//create array object 
+//const myarr = [];
+const myarr = [1,2,3];
+console.log('typeof(myarr)', typeof(myarr)); //object
 
 //The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
 const array1 = [5, 12, 8, 130, 44];
@@ -27,6 +31,12 @@ console.log('array1 length', array1.length);
 //The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
 array1.unshift(1, 3);
 console.log(array1); //[1,3,5,12,8,130,44]
+
+//The shift() method removes the first element from an array and returns that removed element.
+const ele = array1.shift();
+console.log(array1);
+array1.unshift(ele);
+console.log(array1);
 
 //The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
 //start - The index at which to start changing the array.
