@@ -2,6 +2,7 @@
 //const myarr = [];
 const myarr = [1,2,3];
 console.log('typeof(myarr)', typeof(myarr)); //object
+console.log('array length', myarr.length);
 
 //The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
 const array1 = [5, 12, 8, 130, 44];
@@ -63,3 +64,16 @@ console.log(elements.join(''));
 // expected output: "FireAirWater"
 console.log(elements.join('-'));
 // expected output: "Fire-Air-Water"
+
+//The fill() method changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length). It returns the modified array.
+let arr = new Array(5).fill();
+console.log('array fill', arr);
+
+//The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+//callback Function that is called for every element of arr. Each time callback executes, the returned value is added to new_array.
+let arr2 = arr.map((val, i) => i);
+console.log('array map', arr2);
+
+//The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+let arr3 = arr2.filter(val => val % 2 == 0);
+console.log('array filter', arr3);
