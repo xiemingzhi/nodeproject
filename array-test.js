@@ -77,3 +77,25 @@ console.log('array map', arr2);
 //The filter() method creates a new array with all elements that pass the test implemented by the provided function.
 let arr3 = arr2.filter(val => val % 2 == 0);
 console.log('array filter', arr3);
+
+//The sort() method sorts the elements of an array in place and returns the sorted array. 
+//The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF - 16 code units values.
+console.log('before sort', array1);
+array1.sort(); //[1, 12, 18, 3, 30, 44, 5]
+// function compare(a, b) {
+//     if (a is less than b by some ordering criterion) {
+//       return -1;
+//     }
+//     if (a is greater than b by the ordering criterion) {
+//       return 1;
+//     }
+//     // a must be equal to b
+//     return 0;
+// }
+//use `function expressions`
+array1.sort(function (a, b) {
+    return a - b;
+});
+//ES2015 provides `arrow function expressions` with even shorter syntax.
+//numbers.sort((a, b) => a - b);  
+
