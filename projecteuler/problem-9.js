@@ -39,9 +39,56 @@ c = 4^2 + 3^2 = 25
 */
 function specialPythagoreanTriplet(n) {
     let sumOfabc = n;
+    let abcfound = false;
+
+    let o = 2;
+    let p = 1;
+    let a = o*o - p*p;
+    let b = 2*o*p;
+    let c = o*o + p*p;
+    //a+b+c=n therefore c<n
+    while(c < n) {
+        //iterate over all possibilities
+        for (let i = p; i < o; i++) {
+            //console.log('a', a, 'b', b, 'c', c);
+            if ((a+b+c) == n) {
+                abcfound = true;
+                return a*b*c;
+            }
+            a = o*o - i*i;
+            b = 2*o*i;
+            c = o*o + i*i;
+        }
+        o++;
+    }
+
     // Good luck!
-    return true;
+    return -1;
+
+    // let m = 2;
+    // let a = 2*m;
+    // let b = (m*m - 1);
+    // let c = (m*m + 1);
+    // while((a+b+c) <= n) {
+    //     console.log('a', a, 'b', b, 'c', c);
+    //     if ((a+b+c) == n) {
+    //         abcfound = true;
+    //         return a*b*c;
+    //     }
+    //     m++;
+    //     a = 2*m;
+    //     if (a % 2 == 0) {
+    //         b = (m*m - 1);
+    //         c = (m*m + 1);
+    //     } else {
+    //         b = (m*m - 1)/2;
+    //         c = (m*m + 1)/2;
+    //     }
+    // }
+
 }
-   
-specialPythagoreanTriplet(1000);
+console.log('abc', specialPythagoreanTriplet(12));   
+console.log('abc', specialPythagoreanTriplet(24));   
+console.log('abc', specialPythagoreanTriplet(120));
+console.log('abc', specialPythagoreanTriplet(1000));
    
