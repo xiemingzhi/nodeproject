@@ -10,5 +10,13 @@ console.log(set1.has(5));
 
 console.log(set1.has(6));
 
+set1.add(2);
+console.log('has(2)', set1.has(2));
+console.log('set1 size', set1.size);
+
+let sum = 0;
+set1.forEach(ele => sum += ele);
+console.log('set sum', sum);
+
 const set2 = new Set(["12", "23"])
 console.log(set2.has("12"))
