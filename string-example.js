@@ -26,6 +26,10 @@ var a = 'Test123*** TEST';
 var b = a.replace(/[^a-z0-9]/gi,'');
 console.log('alphanumeric only', b);
 
+var palistr = "taco cat";
+//console.log('replaceall spaces', palistr.replaceAll(' ', '')); //replaceAll is not a function
+console.log('replace global', palistr.replace(/ /g, ''));
+
 const greeting = '   Hello world!   ';
 console.log(greeting.trimStart());
 
