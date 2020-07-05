@@ -56,4 +56,6 @@ let s_obj = new String(s_prim)
 console.log(typeof s_prim) // Logs "string"
 console.log(typeof s_obj)  // Logs "object"
 
-str = 'a'
+str = 'abc'
+console.log(str.slice(1))
+console.log(str.slice(2))

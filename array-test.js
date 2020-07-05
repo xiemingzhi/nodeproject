@@ -43,8 +43,15 @@ console.log(array1);
 //start - The index at which to start changing the array.
 //deleteCount Optional - An integer indicating the number of elements in the array to remove from start. If deleteCount is 0 or negative, no elements are removed. 
 //item1, item2, ... Optional - The elements to add to the array, beginning from start. 
+//replace elements
 array1.splice(4, 2, 18, 30); //returns [8,130]
 console.log(array1); //[1,3,5,12,18,30,44]
+//remove element
+array2 = [0, 1, 2, 3, 4, 5];
+let temp2 = array2;
+array2.splice(4, 1);
+console.log(array2);
+console.log(temp2); //same as array2
 
 //The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) 
 //where start and end represent the index of items in that array. 
