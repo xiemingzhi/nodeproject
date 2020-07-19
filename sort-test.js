@@ -9,7 +9,8 @@
  * else swap number at j with number at i
  * recursive call for the left
  * recursive call for the right
- * O(n2)
+ * worst O(n2)
+ * avg O(n log(n))
  * @param inputArr
  * @param left
  * @param right
@@ -42,7 +43,7 @@ function qsort (inputArr, left, right) {
  *  move elements down element[j] =element[j-1]
  *  j--
  * element[j]=currvalue
- * O(n2)  
+ * avg O(n2)  
  * more efficient than bubblesort
  * @param inputArr
  */
