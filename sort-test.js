@@ -1,4 +1,71 @@
 /**
+ * using the helper array as a worker array
+ * split the array into half
+ * sort the left 
+ * sort the right
+ * merge the two
+ * 
+ * avg O(n log n)
+ * @param {*} array 
+ * @param {*} helper 
+ * @param {*} low 
+ * @param {*} high 
+ */
+function mergesort(array, helper, low, high) {
+  if (low < high) {
+    let middle = Math.floor((low + high) / 2);
+    mergesort(array, helper, low, middle); // Sort left half
+    mergesort(array, helper, middle + 1, high); // Sort right half
+    merge(array, helper, low, middle, high); // Merge them
+  }
+}
+
+/**
+ * helper array stores the left and right 
+ * mark start of left and right(helperLeft, helperRight)
+ * if helper[helperLeft] < helper[helperRight] then 
+ *  array[current] = helper[helperLeft] //modify the original 'array'
+ * else //helper[helperLeft] > helper[helperRight] 
+ *  array[current] = helper[helperRight] //modify the original 'array'
+ * 
+ * @param {*} array 
+ * @param {*} helper 
+ * @param {*} low 
+ * @param {*} middle 
+ * @param {*} high 
+ */
+function merge(array, helper, low, middle, high) {
+  /* Copy both halves into a helper array */
+  for (let i = low; i <= high; i++) {
+    helper[i] = array[i];
+  }
+
+  let helperLeft = low;
+  let helperRight = middle + 1;
+  let current = low;
+
+  /* Iterate through helper array. Compare the left and right half, copying back
+   * the smaller element from the two halves into the original array. */
+  while (helperLeft <= middle && helperRight <= high) {
+    if (helper[helperLeft] <= helper[helperRight]) {
+      array[current] = helper[helperLeft];
+      helperLeft++;
+    } else {
+      // If right element is smaller than left element
+      array[current] = helper[helperRight];
+      helperRight++;
+    }
+    current++;
+  }
+
+  /* Copy the rest of the left side of the array into the target array */
+  let remaining = middle - helperLeft;
+  for (let i = 0; i <= remaining; i++) {
+    array[current + i] = helper[helperLeft + i];
+  }
+}
+    
+/**
  * pass by value
  * take a number in the middle
  * i index on the left
@@ -109,5 +176,15 @@ qsort(a, 0, a.length-1);
 end = new Date() - start
 hrend = process.hrtime(hrstart)
 console.log("quicksort a=", a);
+console.info('Execution time: %dms', end)
+console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000)
+a = [3,2,1,1,2,3,4,5];
+start = new Date()
+hrstart = process.hrtime()
+helper = [];
+mergesort(a, helper, 0, a.length-1);
+end = new Date() - start
+hrend = process.hrtime(hrstart)
+console.log("mergesort a=", a);
 console.info('Execution time: %dms', end)
 console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000)
