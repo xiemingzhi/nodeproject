@@ -38,6 +38,10 @@ strx = '' + 1;
 console.log('convert to string', typeof(strx))
 strx = 1 + '';
 console.log('convert to string', typeof(strx))
+strx = "2" + 5 + 6;
+console.log('strx=', strx);//256
+strx = 2 + 5 + "6";
+console.log('strx=', strx);//76
 
 //intx = 1 + '0'; //string
 intx = 1; //number
