@@ -39,3 +39,23 @@ function getBit(num, i) {
  return ((num & (1 << i)) != 0); // (0111 & 1000) != 0
 }
 console.log(getBit(flags, 4));
+
+//multiple 4
+num = 1;
+num = num << 2;
+console.log('num=', num);
+
+//multiple 8
+num = 1;
+num = num << 3;
+console.log('num=', num);
+
+//multiple 7
+num = 1;
+num = (num << 3) - num;
+console.log('num=', num);
+
+//divide 8
+num = 16;
+num = num >> 3;
+console.log('num=', num);
