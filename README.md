@@ -85,3 +85,14 @@ curl -X POST \
  -d '{"name": "princess", "msg": "hello world"}'\
  -s http://localhost:3000/message
 ```
+
+# swagger install 
+
+```
+npm install swagger-ui-express
+npm install --save yamljs
+node express-test.js 
+```
+
+open browser
+http://localhost:3000/api-docs/
